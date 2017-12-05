@@ -3,7 +3,7 @@ MAINTAINER Greg Maslowski <gregmaslowski@gmail.com>
 
 RUN apt-get update
 RUN apt-get upgrade
-RUN apt-get install net-tools
+RUN apt-get install net-tools netcat
 
 RUN mkdir /domoticz
 RUN mkdir /etc/domoticz
