@@ -3,6 +3,7 @@ services:
 - docker
 language: bash
 script:
+- export DOMOTICZ_VERSION=$(curl https://releases.domoticz.com/releases/downloads.php | grep -oP '\d.\d{4}' | tail -1)
 # prepare qemu
 - docker run --rm --privileged multiarch/qemu-user-static:register --reset
 # build image
