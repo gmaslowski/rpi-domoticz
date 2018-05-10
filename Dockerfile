@@ -1,9 +1,6 @@
 FROM resin/rpi-raspbian:jessie
 MAINTAINER Greg Maslowski <gregmaslowski@gmail.com>
 
-# build with Qemu
-COPY ./qemu-arm-static /usr/bin/qemu-arm-static
-
 RUN apt-get update
 RUN apt-get upgrade
 RUN apt-get install net-tools netcat
