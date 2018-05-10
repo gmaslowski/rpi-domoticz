@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/gmaslowski/rpi-domoticz.svg?branch=master)](https://travis-ci.org/gmaslowski/rpi-domoticz)
+
 rpi-domoticz
 ============
 
