@@ -20,4 +20,7 @@ WORKDIR /domoticz
 RUN cat updatebeta | grep 'sudo service domoticz.sh restart' -v > updatebetawithoutservice
 RUN chmod a+x updatebetawithoutservice && ./updatebetawithoutservice
 
+# a fix for https://github.com/domoticz/domoticz/issues/2362
+RUN rm -rf www\js\domoticz.js.gz
+
 CMD ["/domoticz/domoticz", "-www", "8080"]
