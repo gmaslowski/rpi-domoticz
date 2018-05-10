@@ -1,7 +1,14 @@
 sudo: required
+
 services:
 - docker
+
 language: bash
+
+install:
+- sudo apt update
+- sudo apt install -y qemu qemu-user-static qemu-user binfmt-support
+
 script:
 - export DOMOTICZ_VERSION=$(curl https://releases.domoticz.com/releases/downloads.php | grep -oP '\d.\d{4}' | tail -1)
 # prepare qemu
