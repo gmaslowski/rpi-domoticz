@@ -14,10 +14,11 @@ script:
 # prepare qemu
 - docker run --rm --privileged multiarch/qemu-user-static:register --reset
 # build image
-- docker build -t gmaslowski/rpi-domoticz:$DOMOTICZ_VERSION .
+- docker build -t gmaslowski/rpi-domoticz-arm:$DOMOTICZ_VERSION .
 # push image
 - >
   if [ "$TRAVIS_BRANCH" == "master" ] && [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
     docker login -u="$DOCKER_USER" -p="$DOCKER_PASS"
-    docker push gmaslowski/rpi-domoticz:$DOMOTICZ_VERSION
+    docker push gmaslowski/rpi-domoticz-arm:$DOMOTICZ_VERSION
+    docker run --rm -ti weshigbee/manifest-tool --username $DOCKER_USER --password $DOCKER_PASS push from-args --platforms linux/arm --target gmaslowski/rpi-domoticz:$DOMOTICZ_VERSION --template gmaslowski/rpi-domoticz-ARCH:$DOMOTICZ_VERSION
   fi
