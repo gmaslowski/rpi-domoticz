@@ -1,9 +1,10 @@
-FROM resin/rpi-raspbian:jessie
+FROM balenalib/armv7hf-debian:buster
 MAINTAINER Greg Maslowski <gregmaslowski@gmail.com>
 
-RUN apt-get update
-RUN apt-get upgrade
-RUN apt-get install net-tools netcat
+RUN apt-get update \
+    && apt-get upgrade \
+    && apt-get install net-tools netcat \
+    && apt-get clean
 
 RUN mkdir /domoticz
 RUN mkdir /etc/domoticz
